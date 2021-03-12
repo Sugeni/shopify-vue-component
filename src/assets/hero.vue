@@ -1,22 +1,66 @@
 <template>
-    <div class="vue-hero-app">
-        <div class="hero-wrapper" >
-            <h1 class="hero-title">Lorem ipsum dolor sit amet.</h1>
-            <p class="hero-copy"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, vitae a. Commodi eius vel maxime? Quam suscipit amet architecto eligendi corrupti. Neque fugit veniam, repellat perspiciatis sequi modi. Quasi, sed.</p>
-            <div class="hero-CTA">
-                <a class="hero-CTA-link"> 
-                read More
-            </a>
-            </div>
-            
-        </div>
+  <div
+    v-bind:class="[settings.styleApp]"
+    v-bind:style="{ backgroundImage: 'url(' +  isResponsive  + ')' }"
+  >
+    <div v-bind:class="[settings.styleWrapper]">
+      <h1 class="hero-title" v-bind:style="{ color: settings.text_color }">
+        {{ settings.title }}
+      </h1>
+      <p class="hero-copy" v-bind:style="{ color: settings.text_color }">
+        {{ settings.subtitle }}
+      </p>
+      <div class="hero-CTA" v-if="settings.CTA_Text.length > 0">
+        <a class="hero-CTA-link" v-bind:style="{ color: settings.text_color }">
+          {{ settings.CTA_Text }}
+        </a>
+      </div>
     </div>
+  </div>
 </template>
 <script>
-    export default {
-        props: {
-            settings: Object,
-            blocks: Array
-        }
+export default {
+  props: {
+    settings: Object,
+    blocks: Array,
+  },
+data() {
+   return {
+      windowWidth: 0,
+      windowHeight: 0
+   }
+}, 
+  mounted() {
+    this.$nextTick(function() {
+      window.addEventListener('resize', this.getWindowWidth);
+      window.addEventListener('resize', this.getWindowHeight);
+      //Init
+      this.getWindowWidth()
+      this.getWindowHeight()
+    })
+
+  },
+computed: {
+    isResponsive () {
+      if (this.windowWidth >= 768) {
+        return this.settings.image
+      }
+      return this.settings.mobile_image;
     }
+  },
+  methods: {
+    getWindowWidth(event) {
+        this.windowWidth = document.documentElement.clientWidth;
+      },
+
+      getWindowHeight(event) {
+        this.windowHeight = document.documentElement.clientHeight;
+      }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.getWindowWidth);
+    window.removeEventListener('resize', this.getWindowHeight);
+  }
+};
+
 </script>

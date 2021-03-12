@@ -10,6 +10,17 @@ export class HeroApp {
         this._appData = data;
         this._mountingNode = null;
     }
+
+    getSettingAlign(align){
+        if(align === 'center'){
+            this._appData['settings']['styleApp'] = "vue-hero-app" ;
+            this._appData['settings']['styleWrapper'] = "hero-wrapper center" ;
+        } else {
+            this._appData['settings']['styleApp'] = "vue-hero-app " + align ;
+            this._appData['settings']['styleWrapper'] = "hero-wrapper side" ; 
+        }   
+    }
+    
     getSectionId() {
         return this._sectionId;
     }
@@ -23,6 +34,7 @@ export class HeroApp {
     // required
     init() {
         this.setMountingNode();
+        this.getSettingAlign(this._appData['settings'].text_alignment);
         this._appInstance = new Vue({
             el: this._mountingNode,
             render: h => h(Hero, {
