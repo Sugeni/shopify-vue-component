@@ -1,0 +1,92 @@
+.vue-hero-app {
+    background-color: skyblue;
+    display: flex;
+    background-size: 100% 100%;
+    .hero-wrapper {
+     flex-direction: column;
+        .hero-title{
+            font-family: Roboto;
+            color: white;
+            font-weight: bold;
+            font-size: 46px;
+        }
+        .hero-copy{
+            font-family: Roboto;
+            color: white;
+            font-weight: 400;
+            
+        }
+
+        .hero-CTA-link{
+            font-family: Roboto;
+            color: white;
+            padding: 15px 50px;
+            background-color: #57AD68;
+            border-radius: 40px;
+            font-weight: 400;
+            text-transform:uppercase;
+            cursor: pointer;
+        } 
+
+        .hero-CTA-link:hover{
+            background-color: white;
+            color:#57AD68;
+        
+        }
+    }
+
+}
+
+.vue-hero-app.align-right {
+    justify-content: flex-end;
+}
+
+.vue-hero-app.align-left {
+    justify-content: flex-start;
+}
+
+@media only screen and (min-width: 1024px) {
+    .vue-hero-app{ padding: 5%;}
+    .hero-wrapper.center{
+        padding: 5% 10%;
+    }
+    .hero-wrapper.side{
+        width: 50%;
+        padding: 5%;
+    }
+
+    .hero-title{
+        font-size: 46px;
+    }
+    .hero-copy{
+        font-size: 24px;
+    }
+    .hero-CTA{
+        margin-top: 2rem;
+    }
+    .hero-CTA-link{
+        font-size: 20px;
+    }
+    
+    
+}
+@media only screen and (max-width: 1023px) {
+    .vue-hero-app{padding: 15vh 8vw}
+
+    .hero-title{
+        font-size: 36px;
+    }
+    .hero-copy{
+        font-size: 18px;
+    }
+    .hero-CTA{
+        margin-top: 2rem;
+    }
+    .hero-CTA-link{
+        font-size: 20px;
+    }
+ 
+
+}
+
+ 
