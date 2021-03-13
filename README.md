@@ -29,8 +29,10 @@ Also this project requires a yarn package manager.
 
 "gulp watch" - start watching for changes and recompile updated files 
 
-##Hero component
+### Hero component
+Files
 /src/assets/hero.vue
 /src/assets/vue-section-hero.js
 /src/assets/vue-section-hero.scss
+
 /src/sections/hero-vue-liquid
