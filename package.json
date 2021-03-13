@@ -2,7 +2,7 @@
     "name": "vue-js-example",
     "version": "1.0.0",
     "private": true,
-    "author": "Maxim Dyuzhinov",
+    "author": "",
     "description": "A demo project to show how to integrate vue.js components to a Shopify theme",
     "license": "MIT",
     "scripts": {
